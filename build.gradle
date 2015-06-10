@@ -6,18 +6,19 @@ apply plugin: "java"
 
 dependencies {
     compile "org.apache.commons:commons-lang3:3.4"
+	testCompile "junit:junit:4.12"
 }
 
 sourceSets {
     main.java.srcDir "src"
-    test.java.srcDir "test"
+    test.java.srcDir "tests"
 }
 
 // Redefine where .class files are written
-//sourceSets.main.output.classesDir = file("classes")
 
 jar {
 	from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	manifest.attributes "Main-Class": "com.digium.respoke.Respoke"
 }
 
 defaultTasks 'compileJava', 'run'
