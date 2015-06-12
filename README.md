@@ -12,12 +12,27 @@ TODO
     
 ## Running the library
 
-TODO
+To use the library, sign up for a FREE [Respoke account](https://portal.respoke.io/#/signup).
+
+    import com.digium.respoke.*;
+    
+	Respoke client = new Respoke(new HashMap<String, String>() {{
+		put("appId", "APP_ID");
+		put("appSecret", "APP_SECRET");
+		put("roleId", "ROLE_ID");
+		put("endpointId", "USER_NAME");
+	}});
+    
+    String tokenId = client.getTokenId();
+    
+Return this `tokenId` to your front-end and pass it to the `token` property when connecting to Respoke.
+
+    TODO
     
 
 ## Running the tests
 
-TODO
+    gradle test
 
 ## Contributing
 
