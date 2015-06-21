@@ -53,49 +53,35 @@ public class Respoke {
 	}
 	
 	public Respoke(HashMap<String, String> args) {
-		this.appId = args.get("appId");
-		this.appSecret = args.get("appSecret");
-		this.roleId = args.get("roleId");
-		this.endpointId = args.get("endpointId");
+		appId = args.get("appId");
+		appSecret = args.get("appSecret");
+		roleId = args.get("roleId");
+		endpointId = args.get("endpointId");
 	}
 	
 	public String getTokenId() {
-		String token = "";
+		String tokenId = "";
 			
 		try {
-			HttpResponse<JsonNode> tokenRespoke = Unirest.post("http://httpbin.org/post")
-				.header("accept", "application/json")
-				.queryString("apiKey", "123")
-				.field("parameter", "value")
-				.field("foo", "bar")
+			HttpResponse<JsonNode> tokenRespoke = Unirest.post("https://api.respoke.io/v1/tokens")
+				.header("Content-type", "application/json")
+				.header("App-Secret", appSecret)
+				.body(new JSONObject()
+					.put("appId", appId)
+					.put("endpointId", endpointId)
+					.put("roleId", roleId)
+					.put("ttl", "3600")
+					.toString())
 				.asJson();
 				
-			token = tokenRespoke.getBody().toString();
+			tokenId = tokenRespoke.getBody().toString();
 			
-			System.out.println(token);
+			System.out.println(tokenId);
 		} 
 		catch(Exception e) {
 			System.out.println(e.toString());
 		}
 		
-		return token;
-		
-		/*return Unirest.post("http://httpbin.org/post")
-			  .queryString("name", "Mark")
-			  .field("last", "Polo")
-			  .asString();*/
-		
-		/*HttpResponse<JsonNode> jsonResponse = Unirest.post("http://httpbin.org/post")
-			  .header("accept", "application/json")
-			  .field("param1", "value1")
-			  .field("param2","bye")
-			  .asJson();
-
-		return jsonResponse.getBody().toString();*/
-		
-		/*return Unirest.post("http://httpbin.org/post")
-					  .queryString("name", "Mark")
-					  .field("last", "Polo")
-					  .asJson().getBody().toString();*/
+		return tokenId;
 	}
 }

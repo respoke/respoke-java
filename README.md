@@ -29,6 +29,9 @@ Return this `tokenId` to your front-end and pass it to the `token` property when
 
     TODO
     
+## Building from source
+
+    gradle build
 
 ## Running the tests
 
