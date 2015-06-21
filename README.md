@@ -1,4 +1,4 @@
-# Respoke Java Library 
+# Respoke Java Library [![Build Status](https://travis-ci.org/respoke/respoke-java.svg)](https://travis-ci.org/respoke/respoke-java)
 
 Respoke Java is the officially supported Java library for [Respoke](https://respoke.io). 
 
@@ -29,7 +29,13 @@ Return this `tokenId` to your front-end and pass it to the `token` property when
     
 ## Building from source && Running Tests
 
+To build the project from source.
+
     gradle build
+    
+To run the tests from source.
+    
+    gradle check
 
 ## Contributing
 
