@@ -74,12 +74,13 @@ public class Respoke {
 					.toString())
 				.asJson();
 				
-			tokenId = tokenRespoke.getBody().toString();
-			
-			System.out.println(tokenId);
+			tokenId = tokenRespoke.getBody().getObject().getString("tokenId");
 		} 
 		catch(Exception e) {
 			System.out.println(e.toString());
+		}
+		finally {
+			System.out.println(tokenId);
 		}
 		
 		return tokenId;
