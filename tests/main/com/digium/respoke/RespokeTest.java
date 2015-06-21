@@ -3,8 +3,9 @@ import com.digium.respoke.*;
 import java.util.HashMap;
 
 import org.junit.*;
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import static org.junit.Assert.*;
+
 
 public class RespokeTest {
 	private Respoke client;
@@ -72,6 +73,6 @@ public class RespokeTest {
 			put("endpointId", "spock@enterprise.com");
 		}});
 		
-		assertEquals(client.getTokenId(), "c10a2075-3f3d-466f-82f9-d2285e64c5d4");
+		assertTrue(client.getTokenId().matches("[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}"));
 	}
 }

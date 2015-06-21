@@ -2,15 +2,8 @@ package com.digium.respoke;
 
 import java.util.HashMap;
 
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.Getter;
 import lombok.Setter;
-
-/*import org.json.*;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.*;
-import com.mashape.unirest.http.exceptions.UnirestException;*/
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -76,11 +69,8 @@ public class Respoke {
 				
 			tokenId = tokenRespoke.getBody().getObject().getString("tokenId");
 		} 
-		catch(Exception e) {
-			System.out.println(e.toString());
-		}
-		finally {
-			System.out.println(tokenId);
+		catch(UnirestException e) {
+
 		}
 		
 		return tokenId;

@@ -4,9 +4,7 @@ repositories {
 
 apply plugin: "java"
 
-dependencies {
-    compile "org.apache.commons:commons-lang3:3.4"
-	
+dependencies {	
 	compile "org.projectlombok:lombok:1.16.4"
 	
 	compile "org.json:json:20140107"
