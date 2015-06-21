@@ -26,16 +26,10 @@ To use the library, sign up for a FREE [Respoke account](https://portal.respoke.
     String tokenId = client.getTokenId();
     
 Return this `tokenId` to your front-end and pass it to the `token` property when connecting to Respoke.
-
-    TODO
     
-## Building from source
+## Building from source && Running Tests
 
     gradle build
-
-## Running the tests
-
-    gradle test
 
 ## Contributing
 
