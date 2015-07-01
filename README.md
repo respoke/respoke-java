@@ -10,13 +10,11 @@ Please validate you have Java 7 or greater installed.
 
 Install [Respoke's Java Library](http://search.maven.org/#search%7Cga%7C1%7Crespoke) to your project using [Maven](http://search.maven.org/).
 
-    ```
     <dependency>
         <groupId>com.digium.respoke</groupId>
         <artifactId>respoke-java</artifactId>
         <version>(semver)</version>
     </dependency>
-    ```
 
 Install Respoke's Java Library to your project using [Gradle](https://gradle.org/).
 
