@@ -1,8 +1,8 @@
+apply plugin: "java"
+
 repositories {
     mavenCentral()
 }
-
-apply plugin: "java"
 
 dependencies {	
 	compile "org.projectlombok:lombok:1.16.4"
@@ -32,5 +32,22 @@ test {
 		outputs.upToDateWhen { false }
     }
 }
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from tasks.javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
 
 defaultTasks 'build'

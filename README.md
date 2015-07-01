@@ -2,13 +2,27 @@
 
 Respoke Java is the officially supported Java library for [Respoke](https://respoke.io). 
 
-With Respoke, you can add live voice, video, text and data features to your website or mobile app. Check out our [Guides](https://docs.respoke.io/server/php/getting-started.html) to get started using Respoke and Respoke Java now.
+With Respoke, you can add live voice, video, text and data features to your website or mobile app. Check out our [Guides](https://docs.respoke.io/server/java/getting-started.html) to get started using Respoke and Respoke Java now.
 
 Please validate you have Java 7 or greater installed.
 
 ## Installation
 
-TODO
+Install [Respoke's Java Library](http://search.maven.org/#search%7Cga%7C1%7Crespoke) to your project using [Maven](http://search.maven.org/).
+
+    ```
+    <dependency>
+        <groupId>com.digium.respoke</groupId>
+        <artifactId>respoke-java</artifactId>
+        <version>(semver)</version>
+    </dependency>
+    ```
+
+Install Respoke's Java Library to your project using [Gradle](https://gradle.org/).
+
+    dependencies {	
+    	compile "com.digium.respoke:respoke-java:{semver}"
+    }
     
 ## Running the library
 
@@ -36,6 +50,14 @@ To build the project from source.
 To run the tests from source.
     
     gradle check
+    
+To build the javadocs.
+
+    gradle javadoc
+    
+To upload to the maven central respository.
+
+    gradle -b maven.gradle
 
 ## Contributing
 

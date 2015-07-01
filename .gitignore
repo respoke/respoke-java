@@ -2,3 +2,5 @@
 build
 Main.java
 .gradle
+gradle.properties
+
