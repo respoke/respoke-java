@@ -72,7 +72,7 @@ public class Respoke {
 	/**
 	 *  Respoke Constructor
 	 *
-	 *  @param properties A HashMap<String, String> containing values for appId, appSecret, roleId and endpointId.
+	 *  @param properties A HashMap containing values for appId, appSecret, roleId and endpointId.
 	 *
 	 * <pre>
 	 * {@code
@@ -94,6 +94,8 @@ public class Respoke {
 	
 	/**
 	 *  Create a temporary tokenId to use when connecting to Respoke.
+	 *
+	 *  @return tokenId The temporary tokenId returned from Repoke.
 	 */
 	public String getTokenId() {
 		String tokenId = "";
