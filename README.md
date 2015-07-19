@@ -49,13 +49,10 @@ To run the tests from source.
     
     gradle check
     
-To build the javadocs.
-
-    gradle javadoc
-    
 To upload to the maven central respository.
 
     gradle -b maven.gradle
+    gradle -b maven.gradle uploadArchives
 
 ## Contributing
 

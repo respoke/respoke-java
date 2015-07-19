@@ -8,6 +8,7 @@ signing {
 }
 
 group = "com.digium.respoke"
+archivesBaseName = "respoke-java"
 version = "1.0.0"
 
 uploadArchives {
