@@ -9,6 +9,7 @@
  */
 package com.digium.respoke;
 
+import java.net.URI;
 import java.util.HashMap;
 
 import lombok.Getter;
@@ -42,6 +43,9 @@ public class Respoke {
     @Getter @Setter
     private String endpointId;
 
+    @Getter @Setter
+    private String baseUri;
+
     @Setter
     private String tokenId;
 
@@ -61,10 +65,29 @@ public class Respoke {
      * @param endpointId The username for the user being authenticated.
      */
     public Respoke(String appId, String appSecret, String roleId, String endpointId) {
+        this(appId, appSecret, roleId, endpointId, null);
+    }
+
+    /**
+     * Respoke Constructor
+     *
+     * @param appId The App Id generated when you create a Respoke app.
+     * @param appSecret The App Secret generated when you create a Respoke app.
+     * @param roleId The Role Id you create so your App handle authorization.
+     * @param endpointId The username for the user being authenticated.
+     * @param baseUri The base uri of the Respoke REST API. Must include the api version in uri.
+     *     Defaults to "https://api.respoke.io".
+     */
+    public Respoke(String appId, String appSecret, String roleId, String endpointId, String baseUri) {
         this.appId = appId;
         this.appSecret = appSecret;
         this.roleId = roleId;
         this.endpointId = endpointId;
+        this.baseUri = baseUri;
+
+        if (this.baseUri == null) {
+            this.baseUri = "https://api.respoke.io";
+        }
     }
 
     /**
@@ -79,6 +102,7 @@ public class Respoke {
      *      put("appSecret", "eb327e57-e766-49de-b801-ef612a70509e");
      *      put("roleId", "371F82D1-E4CE-4BB0-B2BB-79EA3497FC4F");
      *      put("endpointId", "spock@enterprise.com");
+     *      put("baseUri", "https://api.respoke.io");
      *   }});
      * }
      * </pre>
@@ -88,6 +112,11 @@ public class Respoke {
         appSecret = properties.get("appSecret");
         roleId = properties.get("roleId");
         endpointId = properties.get("endpointId");
+        baseUri = properties.get("baseUri");
+
+        if (baseUri == null) {
+            baseUri = "https://api.respoke.io";
+        }
     }
 
     /**
@@ -97,9 +126,10 @@ public class Respoke {
      */
     public String getTokenId() {
         String tokenId = "";
+        String uri = URI.create(baseUri).resolve("/v1/tokens").toString();
 
         try {
-            HttpResponse<JsonNode> tokenRespoke = Unirest.post("https://api.respoke.io/v1/tokens")
+            HttpResponse<JsonNode> tokenRespoke = Unirest.post(uri)
                 .header("Content-type", "application/json")
                 .header("App-Secret", appSecret)
                 .body(new JSONObject()
