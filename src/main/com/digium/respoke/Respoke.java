@@ -46,19 +46,19 @@ public class Respoke {
     private String tokenId;
 
     /**
-     *  Respoke Constructor
+     * Respoke Constructor
      */
     public Respoke() {
 
     }
 
     /**
-     *  Respoke Constructor
+     * Respoke Constructor
      *
-     *  @param appId The App Id generated when you create a Respoke app.
-     *  @param appSecret The App Secret generated when you create a Respoke app.
-     *  @param roleId The Role Id you create so your App handle authorization.
-     *  @param endpointId The username for the user being authenticated.
+     * @param appId The App Id generated when you create a Respoke app.
+     * @param appSecret The App Secret generated when you create a Respoke app.
+     * @param roleId The Role Id you create so your App handle authorization.
+     * @param endpointId The username for the user being authenticated.
      */
     public Respoke(String appId, String appSecret, String roleId, String endpointId) {
         this.appId = appId;
@@ -68,9 +68,9 @@ public class Respoke {
     }
 
     /**
-     *  Respoke Constructor
+     * Respoke Constructor
      *
-     *  @param properties A HashMap containing values for appId, appSecret, roleId and endpointId.
+     * @param properties A HashMap containing values for appId, appSecret, roleId and endpointId.
      *
      * <pre>
      * {@code
@@ -91,9 +91,9 @@ public class Respoke {
     }
 
     /**
-     *  Create a temporary tokenId to use when connecting to Respoke.
+     * Create a temporary tokenId to use when connecting to Respoke.
      *
-     *  @return tokenId The temporary tokenId returned from Repoke.
+     * @return tokenId The temporary tokenId returned from Repoke.
      */
     public String getTokenId() {
         String tokenId = "";
