@@ -12,48 +12,48 @@ archivesBaseName = "respoke-java"
 version = "1.0.0"
 
 uploadArchives {
-	repositories {
-		mavenDeployer {
-			beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-			repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-				authentication(userName: ossrhUsername, password: ossrhPassword)
-			}
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
 
-			snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-				authentication(userName: ossrhUsername, password: ossrhPassword)
-			}
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
 
-			pom.project {
-				name 'Respoke Java Library'
-				artifactId 'respoke-java'
-				packaging 'jar'
-				description 'Java serverside library for the Respoke REST API '
-				url 'https://www.respoke.io/'
+            pom.project {
+                name 'Respoke Java Library'
+                artifactId 'respoke-java'
+                packaging 'jar'
+                description 'Java serverside library for the Respoke REST API '
+                url 'https://www.respoke.io/'
 
-				scm {
-					connection 'scm:git@github.com:respoke/respoke-java.git'
-					developerConnection 'scm:git@github.com:respoke/respoke-java.git'
-					url 'https://github.com/respoke/respoke-java'
-				}
+                scm {
+                    connection 'scm:git@github.com:respoke/respoke-java.git'
+                    developerConnection 'scm:git@github.com:respoke/respoke-java.git'
+                    url 'https://github.com/respoke/respoke-java'
+                }
 
-				licenses {
-					license {
-						name 'MIT License'
-						url 'http://opensource.org/licenses/MIT'
-					}
-				}
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'http://opensource.org/licenses/MIT'
+                    }
+                }
 
-				developers {
-					developer {
-						id 'jpadams'
-						name 'Respoke.io'
-						email 'info@respoke.io'
-					}
-				}
-			}
-		}
-	}
+                developers {
+                    developer {
+                        id 'jpadams'
+                        name 'Respoke.io'
+                        email 'info@respoke.io'
+                    }
+                }
+            }
+        }
+    }
 }
 
 defaultTasks 'build'
