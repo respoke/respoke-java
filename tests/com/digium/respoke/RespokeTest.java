@@ -1,11 +1,9 @@
-import com.digium.respoke.*;
+package com.digium.respoke;
 
 import java.util.HashMap;
 
 import org.junit.*;
-import org.junit.Test;
 import static org.junit.Assert.*;
-
 
 public class RespokeTest {
     private Respoke client;

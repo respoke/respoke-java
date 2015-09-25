@@ -28,7 +28,7 @@ uploadArchives {
                 name 'Respoke Java Library'
                 artifactId 'respoke-java'
                 packaging 'jar'
-                description 'Java serverside library for the Respoke REST API '
+                description 'Java serverside library for the Respoke REST API'
                 url 'https://www.respoke.io/'
 
                 scm {

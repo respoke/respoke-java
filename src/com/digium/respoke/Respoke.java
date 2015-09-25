@@ -1,4 +1,4 @@
-/**
+ /**
  * Copyright 2015, Digium, Inc.
  * All rights reserved.
  *
@@ -14,18 +14,11 @@ import java.util.HashMap;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.async.Callback;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.mashape.unirest.http.options.Options;
-import com.mashape.unirest.request.GetRequest;
 
 /**
  * The top-level wrapper around the Respoke REST API.

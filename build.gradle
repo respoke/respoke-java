@@ -6,14 +6,11 @@ repositories {
 
 dependencies {
     compile "org.projectlombok:lombok:1.16.4"
-
     compile "org.json:json:20140107"
     compile "org.apache.httpcomponents:httpclient:4.3.6"
     compile "org.apache.httpcomponents:httpmime:4.3.6"
     compile "org.apache.httpcomponents:httpasyncclient:4.0.2"
-
     compile "com.mashape.unirest:unirest-java:1.4.5"
-
     testCompile "junit:junit:4.12"
 }
 
@@ -48,6 +45,5 @@ artifacts {
     archives javadocJar
     archives sourcesJar
 }
-
 
 defaultTasks 'build'
