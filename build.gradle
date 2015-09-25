@@ -1,5 +1,16 @@
 apply plugin: "java"
 
+def getVersionName = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'describe', '--tags'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim().replaceAll("^v", "")
+}
+
+version = getVersionName()
+
 repositories {
     mavenCentral()
 }
@@ -21,6 +32,11 @@ sourceSets {
 
 jar {
     from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+
+    manifest {
+        attributes("Implementation-Title": "Respoke-Java")
+        attributes("Implementation-Version": version)
+    }
 }
 
 test {
