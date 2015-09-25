@@ -11,7 +11,7 @@ package com.digium.respoke;
 
 import java.net.URI;
 import java.util.HashMap;
-
+import java.lang.Package;
 import lombok.Getter;
 import lombok.Setter;
 import org.json.JSONObject;
@@ -41,6 +41,17 @@ public class Respoke {
 
     @Setter
     private String tokenId;
+
+    private String getSDKHeader() {
+        Package pkg = getClass().getPackage();
+        String javaVersion = String.format("Java/%s", System.getProperty("java.version"));
+        String osVersion = String.format("%s %s",
+                System.getProperty("os.name"), System.getProperty("os.version"));
+        String packageVersion = String.format("%s/%s", pkg.getImplementationTitle(),
+                pkg.getImplementationVersion());
+
+        return String.format("%s (%s) %s", packageVersion, osVersion, javaVersion);
+    }
 
     /**
      * Respoke Constructor
@@ -125,6 +136,7 @@ public class Respoke {
             HttpResponse<JsonNode> tokenRespoke = Unirest.post(uri)
                 .header("Content-type", "application/json")
                 .header("App-Secret", appSecret)
+                .header("Respoke-SDK", this.getSDKHeader())
                 .body(new JSONObject()
                         .put("appId", appId)
                         .put("endpointId", endpointId)
