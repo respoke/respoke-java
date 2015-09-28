@@ -17,7 +17,7 @@ Install [Respoke's Java Library](http://search.maven.org/#search%7Cga%7C1%7Cresp
 <dependency>
     <groupId>com.digium.respoke</groupId>
     <artifactId>respoke-java</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -25,7 +25,7 @@ Install Respoke's Java Library to your project using [Gradle](https://gradle.org
 
 ```
 dependencies {
-    compile "com.digium.respoke:respoke-java:1.0.0"
+    compile "com.digium.respoke:respoke-java:1.1.0"
 }
 ```
 
